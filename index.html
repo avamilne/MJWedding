@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jane &amp; Michael – 14 August 2027</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@300;400&family=Pinyon+Script&display=swap">
+<style>
+:root{--bg:#f0efeb;--ink:#1c1a19;--mute:#6b6561;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1918;--ink:#efece6;--mute:#a39d97}}
+:root[data-theme="dark"]{--bg:#1b1918;--ink:#efece6;--mute:#a39d97}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{font-family:Montserrat,Helvetica,Arial,sans-serif;font-weight:300}
+.head,.script{font-family:Italiana,Georgia,serif;font-weight:400}
+.script{font-family:'Pinyon Script','Snell Roundhand',cursive}
+.cover{position:fixed;inset:0;z-index:10;perspective:1500px;overflow:hidden;background:var(--bg)}
+.door{position:absolute;top:0;bottom:0;width:50%;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform 1.3s cubic-bezier(.6,.05,.2,1),opacity 1.3s;backface-visibility:hidden;padding-top:env(safe-area-inset-top,0px)}
+.door.l{left:0;transform-origin:left center;border-right:2px dotted var(--mute)}
+.door.r{right:0;transform-origin:right center}
+.mono{font-family:'Pinyon Script','Snell Roundhand',cursive;font-size:clamp(90px,24vw,170px);line-height:1}
+.yr{letter-spacing:.35em;font-size:13px;margin-top:18px}
+.cover.open .l{transform:rotateY(-110deg);opacity:0}
+.cover.open .r{transform:rotateY(110deg);opacity:0}
+#open{position:absolute;left:50%;bottom:12%;transform:translateX(-50%);z-index:3;background:var(--bg);box-shadow:0 0 0 12px var(--bg);border:1px solid var(--ink);color:var(--ink);padding:12px 22px;letter-spacing:.3em;font:inherit;font-size:11px;text-transform:uppercase;cursor:pointer;white-space:nowrap;border-radius:999px;transition:opacity .4s}
+.cover.open #open{opacity:0;pointer-events:none}
+.inside{max-width:1100px;margin:0 auto;display:grid;gap:0;opacity:0;transition:opacity 1s .5s}
+.inside.show{opacity:1}
+.panel{padding:44px 28px;text-align:center}
+.panel+.panel{border-top:2px dotted var(--mute)}
+.centre{order:1}.sched{order:2}.stay{order:3}
+h2{font-family:Italiana,Georgia,serif;font-weight:400;font-size:26px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px}
+p,.sm{font-size:12px;letter-spacing:.2em;line-height:2;text-transform:uppercase;margin:0 0 14px}
+.names{font-size:clamp(54px,15vw,84px);line-height:1.1;margin:18px 0 22px}
+.names i{font-size:.6em;font-style:normal}
+.church{width:min(260px,70%);color:var(--ink)}
+.church *{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.link{display:inline-block;margin-top:6px;padding:10px 18px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-size:11px;letter-spacing:.25em;text-transform:uppercase;border-radius:999px}
+.tl{list-style:none;margin:8px auto 0;padding:0;max-width:300px}
+.tl li{display:grid;grid-template-columns:1fr 52px 1fr;align-items:center;gap:8px;position:relative;padding:14px 0}
+.tl li:not(:last-child)::after{content:"";position:absolute;left:50%;top:calc(50% + 24px);height:calc(100% - 24px);border-left:1px solid var(--mute)}
+.tl .t{font-size:11px;text-align:right;letter-spacing:.05em}
+.tl .l{font-size:11px;text-align:left;letter-spacing:.18em;text-transform:uppercase}
+.tl svg{width:40px;height:40px;margin:auto;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;background:var(--bg);position:relative;z-index:1}
+.solid{background:var(--ink);color:var(--bg);margin-top:30px}
+.rsvp{max-width:520px;margin:0 auto;padding:50px 28px 70px;text-align:center;border-top:2px dotted var(--mute);opacity:0;transition:opacity 1s .5s}
+.rsvp.show{opacity:1}
+.f{display:block;width:100%;margin:0 0 14px;padding:13px 12px;background:transparent;color:var(--ink);border:1px solid var(--mute);border-radius:0;font:inherit;font-size:14px;letter-spacing:.05em}
+.choice{display:flex;gap:10px;margin-bottom:14px}
+.choice button{flex:1;padding:13px 6px;background:transparent;color:var(--ink);border:1px solid var(--mute);font:inherit;font-size:11px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
+.choice button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.send{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.count{margin-top:26px;color:var(--mute)}
+@media(min-width:860px){
+ .inside{grid-template-columns:1fr 1.3fr 1fr}
+ .panel+.panel{border-top:0}
+ .stay{order:1}.centre{order:2;border-left:2px dotted var(--mute);border-right:2px dotted var(--mute)}.sched{order:3}
+ .panel{padding:70px 32px}
+}
+</style>
+</head>
+<body>
+<div class="cover" id="cover">
+  <div class="door l"><div class="mono">J</div><div class="yr">2027</div></div>
+  <div class="door r"><div class="mono">M</div><div class="yr">08.14</div></div>
+  <button id="open">Tap to open</button>
+</div>
+
+<main class="inside" id="inside">
+  <section class="panel stay">
+    <h2>Staying over</h2>
+    <p>We recommend staying at West Lodge Park Hotel. Please book directly with their Reservations Team and quote ref: 14 August 2027.</p>
+    <p>Call 020 8216 3900 or book online.</p>
+    <a class="link" href="https://www.westlodgepark.co.uk/" target="_blank" rel="noopener">Hotel website</a>
+    <p style="margin-top:18px">Rooms are limited, as another wedding is at the hotel that day. Nothing to pay until 7 days before.</p>
+  </section>
+
+  <section class="panel centre">
+    <svg class="church" viewBox="0 0 220 190" aria-hidden="true">
+      <path d="M110 6v22M101 14h18"/><path d="M110 28l-62 52v90h124V80z"/><path d="M110 70l-30 28v72h60V98z"/>
+      <path d="M110 70v-8M106 66h8"/><path d="M96 170v-42a14 14 0 0128 0v42"/><path d="M60 170v-46a8 8 0 0116 0v46M144 170v-46a8 8 0 0116 0v46"/>
+      <path d="M40 176h140M30 184h160"/><path d="M110 114v56"/>
+    </svg>
+    <div class="script names">Jane <i>&amp;</i> Michael</div>
+    <p>Request the pleasure of your company<br>as they celebrate their marriage</p>
+    <p style="margin-top:26px">Saturday<br>14 August 2027<br>Wedding at 12:00 pm</p>
+    <p>Our Lady of Walsingham</p>
+    <p>Parking at the church is very limited, so a coach will take guests from the ceremony to the reception.</p>
+    <h2 style="margin-top:34px">Reception</h2>
+    <p>West Lodge Park Hotel<br>Enfield</p>
+    <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=West+Lodge+Park+Hotel" target="_blank" rel="noopener">Open in Maps</a>
+    <div><a class="link solid" href="#rsvp">RSVP &amp; song request</a></div>
+    <div class="sm count" id="count"></div>
+  </section>
+
+  <section class="panel sched">
+    <h2>Schedule</h2>
+    <ul class="tl">
+      <li><span class="t">12:00 PM</span><svg viewBox="0 0 40 40"><path d="M20 3v6M17 6h6M20 9l10 8v19H10V17zM16 36V27a4 4 0 018 0v9"/></svg><span class="l">Wedding</span></li>
+      <li><span class="t">2:00 PM</span><svg viewBox="0 0 40 40"><path d="M6 28a14 14 0 0128 0zM4 32h32M20 14v-3"/></svg><span class="l">Wedding breakfast</span></li>
+      <li><span class="t">4:30 PM</span><svg viewBox="0 0 40 40"><path d="M8 8h24L20 22zM20 22v10M13 34h14"/></svg><span class="l">Band &amp; bar</span></li>
+      <li><span class="t">6:00 PM</span><svg viewBox="0 0 40 40"><path d="M20 4l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg><span class="l">Evening reception &amp; dancing</span></li>
+      <li><span class="t">12:00 AM</span><svg viewBox="0 0 40 40"><path d="M10 20h20M20 10v20M20 20l-8-8M20 20l8 8M20 20l8-8M20 20l-8 8"/></svg><span class="l">Midnight</span></li>
+    </ul>
+    <p style="margin-top:22px">Band and bar available to guests &amp; residents from 4:30</p>
+  </section>
+</main>
+
+<section class="rsvp" id="rsvp">
+  <h2>RSVP</h2>
+  <p>Let us know if you can join us, and request a song to get you dancing.</p>
+  <input class="f" id="nm" placeholder="Your name(s)" autocomplete="name">
+  <div class="choice"><button id="yes" class="on">Joyfully accept</button><button id="no">Regretfully decline</button></div>
+  <input class="f" id="num" inputmode="numeric" placeholder="Number of guests">
+  <input class="f" id="song" placeholder="Song request for the dancing">
+  <div class="send"><a class="link" id="wa" target="_blank" rel="noopener">Send by WhatsApp</a><a class="link" id="em">Send by email</a></div>
+  <p class="sm" style="margin-top:18px;color:var(--mute)">Opens your WhatsApp or email with your reply ready to send.</p>
+</section>
+
+<script>
+var cover=document.getElementById('cover'),inside=document.getElementById('inside');
+document.getElementById('open').addEventListener('click',function(){
+  cover.classList.add('open');inside.classList.add('show');$('rsvp').classList.add('show');
+  setTimeout(function(){cover.style.display='none';window.scrollTo(0,0);},1500);
+});
+(function(){
+  var d=new Date('2027-08-14T12:00:00')-new Date(),el=document.getElementById('count');
+  if(d>0)el.textContent=Math.floor(d/864e5)+' days to go';
+})();
+
+var going=true,$=function(i){return document.getElementById(i)};
+function msg(){return 'Jane & Michael – 14 August 2027\nRSVP from: '+($('nm').value||'(name)')+'\n'+(going?'Joyfully accepting':'Regretfully declining')+(going&&$('num').value?'\nGuests: '+$('num').value:'')+($('song').value?'\nSong request: '+$('song').value:'');}
+function upd(){$('wa').href='https://wa.me/?text='+encodeURIComponent(msg());$('em').href='mailto:?subject='+encodeURIComponent('RSVP – Jane & Michael, 14 August 2027')+'&body='+encodeURIComponent(msg());}
+['nm','num','song'].forEach(function(i){$(i).addEventListener('input',upd)});
+$('yes').onclick=function(){going=true;$('yes').className='on';$('no').className='';upd()};
+$('no').onclick=function(){going=false;$('no').className='on';$('yes').className='';upd()};
+upd();
+</script>
+</body>
+</html>
